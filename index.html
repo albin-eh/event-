@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Illuminate Workshop | NxT BYTE E-Cell Kasargod</title>
+<meta name="description" content="Illuminate Workshop by NxT BYTE E-Cell Kasargod in association with E-Cell IIT Bombay.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F;
+  --bg-soft:#101014;
+  --panel:#111116;
+  --panel-2:#15151b;
+  --purple:#4B168C;
+  --purple-bright:#6d27c4;
+  --purple-soft:rgba(75,22,140,.18);
+  --purple-glow:rgba(75,22,140,.38);
+  --text:#f7f5fb;
+  --muted:#aaa6b4;
+  --line:rgba(255,255,255,.14);
+  --line-purple:rgba(109,39,196,.55);
+  --success:#75e0a0;
+  --danger:#ff6878;
+  --radius:22px;
+  --shadow:0 25px 80px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% -10%,rgba(75,22,140,.30),transparent 34%),
+    radial-gradient(circle at 90% 35%,rgba(75,22,140,.10),transparent 28%),
+    var(--bg);
+  line-height:1.6;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 70%);
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+
+/* NAV */
+.nav{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:5;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.brand{
+  display:flex;align-items:center;gap:11px;
+  font-family:"Space Grotesk";font-weight:700;
+  letter-spacing:-.3px
+}
+.logo{
+  width:39px;height:39px;border-radius:12px;
+  background:var(--purple);
+  border:1px solid rgba(255,255,255,.25);
+  display:grid;place-items:center;color:#fff;font-weight:800;
+  box-shadow:0 0 30px rgba(75,22,140,.35)
+}
+.navlinks{display:flex;gap:30px;color:#aaa6b4;font-size:14px}
+.navlinks a{transition:.2s}
+.navlinks a:hover{color:#fff}
+.navbtn,.primary{
+  border:1px solid #6d27c4;
+  background:var(--purple);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:12px;
+  font-weight:700;
+  transition:.22s;
+  box-shadow:0 8px 30px rgba(75,22,140,.22)
+}
+.navbtn:hover,.primary:hover{
+  transform:translateY(-2px);
+  background:var(--purple-bright);
+  box-shadow:0 12px 38px rgba(75,22,140,.38)
+}
+
+/* HERO */
+.hero{
+  min-height:680px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:50px;
+  padding:75px 0 95px;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--line-purple);
+  background:var(--purple-soft);
+  padding:8px 13px;border-radius:999px;
+  color:#d6cbe6;font-size:13px;margin-bottom:25px
+}
+.dot{
+  width:7px;height:7px;background:#7b36c5;border-radius:50%;
+  box-shadow:0 0 15px #7b36c5
+}
+h1{
+  font-family:"Space Grotesk";
+  font-size:clamp(48px,7vw,88px);
+  line-height:.96;
+  letter-spacing:-4px;
+  max-width:800px
+}
+.gradient{
+  background:linear-gradient(90deg,#fff 15%,#b986e9 55%,#6d27c4 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{font-size:18px;color:var(--muted);max-width:650px;margin:26px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.secondary{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.025);
+  color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;
+  transition:.2s
+}
+.secondary:hover{
+  border-color:var(--line-purple);
+  background:var(--purple-soft)
+}
+.hero-card{
+  background:linear-gradient(145deg,rgba(75,22,140,.16),rgba(255,255,255,.025));
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:30px;
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden
+}
+.hero-card:before{
+  content:"";position:absolute;width:200px;height:200px;border-radius:50%;
+  background:var(--purple);filter:blur(85px);opacity:.30;right:-70px;top:-65px
+}
+.event-mark{
+  font-family:"Space Grotesk";font-size:58px;line-height:.9;font-weight:700;
+  position:relative
+}
+.event-mark span{color:#7d3bc8}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.info{border-top:1px solid var(--line);padding-top:14px}
+.info small{color:#817c8b;display:block;font-size:12px;margin-bottom:4px}
+.info strong{font-size:15px}
+
+/* SECTIONS */
+section{padding:90px 0}
+.section-head{margin-bottom:36px}
+.eyebrow{
+  color:#8b4bd0;text-transform:uppercase;letter-spacing:2px;
+  font-size:12px;font-weight:700
+}
+h2{
+  font-family:"Space Grotesk";font-size:clamp(32px,5vw,52px);
+  letter-spacing:-2px;line-height:1.05;margin-top:8px
+}
+.section-head p{color:var(--muted);max-width:720px;margin-top:14px}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.about-copy{font-size:19px;color:#c5c0cc}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+  transition:.25s;
+  position:relative;overflow:hidden
+}
+.card:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(75,22,140,.11),transparent 45%);
+  pointer-events:none
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-purple);
+  box-shadow:0 18px 45px rgba(0,0,0,.3)
+}
+.icon{
+  width:44px;height:44px;border-radius:13px;
+  background:var(--purple-soft);
+  border:1px solid rgba(109,39,196,.35);
+  display:grid;place-items:center;color:#a064df;font-size:21px;margin-bottom:22px
+}
+.card h3{font-family:"Space Grotesk";font-size:20px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+
+/* REGISTRATION */
+.registration{background:linear-gradient(180deg,transparent,rgba(75,22,140,.055))}
+.form-wrap{display:grid;grid-template-columns:.72fr 1.28fr;gap:24px}
+.side-panel,.form-panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px
+}
+.side-panel{
+  background:
+    radial-gradient(circle at 80% 10%,rgba(75,22,140,.28),transparent 40%),
+    var(--panel)
+}
+.side-panel ul{list-style:none;margin-top:25px;display:grid;gap:16px}
+.side-panel li{display:flex;gap:12px;color:#c5c0cc}
+.check{color:#8d4bd0;font-weight:800}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;color:#d7d2df;font-weight:600}
+input,select{
+  width:100%;background:#0B0B0F;border:1px solid var(--line);
+  color:#fff;border-radius:11px;padding:13px 14px;outline:none
+}
+input::placeholder{color:#666270}
+input:focus,select:focus{
+  border-color:#6d27c4;
+  box-shadow:0 0 0 3px rgba(75,22,140,.17)
+}
+.terms{display:flex;gap:10px;align-items:flex-start;margin:18px 0;color:var(--muted);font-size:12px}
+.terms input{width:17px;margin-top:2px;accent-color:var(--purple)}
+.form-actions{display:flex;justify-content:flex-end}
+.error{color:var(--danger);font-size:12px;min-height:16px}
+
+/* STEPS */
+.step{display:none}
+.step.active{display:block}
+.stepbar{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.step-dot{
+  width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;background:#202026;color:#77727f;
+  border:1px solid var(--line);font-size:12px;font-weight:700
+}
+.step-dot.active{
+  background:var(--purple);color:#fff;border-color:#7130ba;
+  box-shadow:0 0 24px rgba(75,22,140,.35)
+}
+.step-line{height:1px;background:var(--line);width:55px}
+
+/* PAYMENT */
+.order{
+  border:1px solid var(--line);border-radius:16px;padding:20px;
+  margin:20px 0;background:#0e0e13
+}
+.order-row{display:flex;justify-content:space-between;gap:20px;padding:8px 0;color:#aaa6b4}
+.order-row.total{border-top:1px solid var(--line);margin-top:8px;padding-top:16px;color:#fff;font-size:18px;font-weight:700}
+.pay-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.pay-option{
+  border:1px solid var(--line);background:#0B0B0F;color:#fff;
+  padding:12px;border-radius:11px;transition:.2s
+}
+.pay-option:hover,.pay-option.selected{
+  border-color:#6d27c4;background:var(--purple-soft)
+}
+
+/* SUCCESS */
+.success{text-align:center;padding:15px 0}
+.success-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(117,224,160,.10);color:var(--success);
+  border:1px solid rgba(117,224,160,.25);
+  display:grid;place-items:center;font-size:35px;margin:0 auto 20px
+}
+.ticket{
+  max-width:480px;margin:25px auto 0;text-align:left;
+  border:1px solid var(--line);border-radius:18px;padding:22px;background:#0B0B0F
+}
+.ticket-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:9px 0;gap:20px}
+.ticket-row:last-child{border:0}
+.ticket-row span:first-child{color:#77727f;font-size:13px}
+.ticket-id{font-family:monospace;color:#a064df;font-size:17px}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);padding:30px 0;color:#77727f;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* TOAST */
+.toast{
+  position:fixed;right:20px;bottom:20px;
+  background:#f5f1fa;color:#151118;
+  padding:13px 17px;border-radius:12px;font-weight:600;
+  box-shadow:var(--shadow);display:none;z-index:20
+}
+
+
+/* KEY LOGOS / PARTNER STRIP */
+.partner-strip{
+  display:grid;
+  grid-template-columns:1fr 1fr 1.35fr;
+  gap:16px;
+  padding-top:0;
+  padding-bottom:25px
+}
+.partner-card{
+  min-height:210px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(75,22,140,.07));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  text-align:center;
+  transition:.25s
+}
+.partner-card:hover{
+  border-color:var(--line-purple);
+  transform:translateY(-3px);
+  box-shadow:0 18px 45px rgba(0,0,0,.25)
+}
+.partner-label{
+  color:#77727f;
+  font-size:10px;
+  letter-spacing:1.7px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:12px
+}
+.partner-logo{
+  height:105px;
+  width:min(100%,300px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden
+}
+.partner-logo img{
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block
+}
+.nxt-logo img{max-height:112px}
+.ecell-logo img{max-height:88px}
+.nec-logo img{max-height:105px}
+.partner-name{
+  color:#d8d2e0;
+  font-size:12px;
+  font-weight:600;
+  margin-top:10px
+}
+
+@media(max-width:850px){
+ .hero,.about,.form-wrap{grid-template-columns:1fr}
+ .partner-strip{grid-template-columns:1fr 1fr}
+ .nec-card{grid-column:1/-1}
+ .hero{padding-top:35px;min-height:auto}
+ .cards{grid-template-columns:1fr}
+ .navlinks{display:none}
+ h1{letter-spacing:-2.5px}
+}
+@media(max-width:600px){
+ .partner-strip{grid-template-columns:1fr}
+ .nec-card{grid-column:auto}
+ section{padding:65px 0}
+ .hero-card{padding:22px}
+ .event-mark{font-size:46px}
+ .form-grid{grid-template-columns:1fr}
+ .field.full{grid-column:auto}
+ .pay-options{grid-template-columns:1fr}
+ .navbtn{padding:10px 14px}
+ .container{width:min(94%,1120px)}
+}
+@media print{
+ body{background:#fff;color:#111}
+ body:before,.nav,.hero,section:not(#register),.footer,.stepbar{display:none!important}
+ .registration{padding:0;background:#fff}
+ .side-panel{display:none}
+ .form-wrap{display:block}
+ .form-panel{border:0;background:#fff}
+ .step{display:none!important}
+ #step3{display:block!important}
+ .ticket{background:#fff;border:1px solid #ccc;color:#111}
+ .ticket-row{border-color:#ddd}
+ .ticket-row span:first-child{color:#555}
+}
+</style>
+</head>
+<body>
+
+<header class="container nav">
+  <a href="#" class="brand"><span class="logo">N</span><span>NxT BYTE <small style="color:#8d4bd0">E-CELL</small></span></a>
+  <nav class="navlinks">
+    <a href="#about">About</a><a href="#learn">Workshop</a><a href="#register">Register</a>
+  </nav>
+  <a href="#register" class="navbtn">Register Now</a>
+</header>
+
+<main>
+<section class="container hero">
+  <div>
+    <div class="badge"><span class="dot"></span> In association with E-Cell IIT Bombay</div>
+    <h1>Turn ideas into <span class="gradient">impact.</span></h1>
+    <p><strong>Illuminate Workshop</strong> by NxT BYTE E-Cell Kasargod — a hands-on journey into entrepreneurship, business models, finance and the principles behind building a startup.</p>
+    <div class="actions">
+      <a class="primary" href="#register">Reserve Your Seat →</a>
+      <a class="secondary" href="#about">Explore Workshop</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div style="font-size:12px;color:#8d4bd0;text-transform:uppercase;letter-spacing:2px">NxT BYTE E-CELL KASARGOD × E-CELL IIT BOMBAY</div>
+    <div class="event-mark" style="margin-top:16px">ILLUMI<span>N</span>ATE</div>
+    <p style="margin:18px 0 0;color:#a7adbd;font-size:14px">An initiative by E-Cell IIT Bombay</p>
+    <div class="info-grid">
+      <div class="info"><small>Organizer</small><strong>NxT BYTE E-Cell Kasargod</strong></div>
+      <div class="info"><small>Focus</small><strong>Entrepreneurship & Finance</strong></div>
+      <div class="info"><small>Format</small><strong>Interactive Workshop</strong></div>
+      <div class="info"><small>For</small><strong>College Students</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="container partner-strip" aria-label="Organizers and partners">
+  <div class="partner-card organizer-card">
+    <div class="partner-label">Organized by</div>
+    <div class="partner-logo nxt-logo"><img src="assets/nxt-byte-logo.png" alt="NxT BYTE E-Cell Kasargod"></div>
+    <div class="partner-name">NxT BYTE E-Cell Kasargod</div>
+  </div>
+  <div class="partner-card">
+    <div class="partner-label">In association with</div>
+    <div class="partner-logo ecell-logo"><img src="assets/ecell-iitb-logo.png" alt="E-Cell IIT Bombay"></div>
+    <div class="partner-name">E-Cell IIT Bombay</div>
+  </div>
+  <div class="partner-card nec-card">
+    <div class="partner-label">Entrepreneurship initiative</div>
+    <div class="partner-logo nec-logo"><img src="assets/nec-2026-logo.png" alt="National Entrepreneurship Challenge 2026"></div>
+    <div class="partner-name">National Entrepreneurship Challenge 2026</div>
+  </div>
+</section>
+
+<section id="about" class="container">
+  <div class="about">
+    <div class="section-head">
+      <div class="eyebrow">About Illuminate</div>
+      <h2>Build the mindset behind the business.</h2>
+    </div>
+    <div class="about-copy">
+      Illuminate, an initiative by E-Cell IIT Bombay, aims to spark entrepreneurial spirit and build business acumen in students across India through workshops on business models, finance, and core startup principles.
+      <br><br>
+      Its vision is to inspire, educate, and empower college students worldwide to become entrepreneurial leaders of tomorrow through engaging and insightful sessions on entrepreneurship, business, and finance.
+    </div>
+  </div>
+</section>
+
+<section id="learn" class="container">
+  <div class="section-head">
+    <div class="eyebrow">Workshop focus</div>
+    <h2>What you’ll take away.</h2>
+    <p>Designed to make entrepreneurship easier to understand, discuss and apply.</p>
+  </div>
+  <div class="cards">
+    <article class="card"><div class="icon">↗</div><h3>Business Models</h3><p>Understand how businesses create, deliver and capture value, and how to think through a viable model.</p></article>
+    <article class="card"><div class="icon">₹</div><h3>Finance Basics</h3><p>Build practical awareness of startup finance, revenue, costs and the numbers that matter.</p></article>
+    <article class="card"><div class="icon">✦</div><h3>Startup Principles</h3><p>Explore core startup concepts and develop an entrepreneurial approach to solving real problems.</p></article>
+  </div>
+</section>
+
+<section id="register" class="registration">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">Secure your seat</div>
+    <h2>Event registration.</h2>
+    <p>Complete your details, review your registration and continue to the payment stage.</p>
+  </div>
+
+  <div class="form-wrap">
+    <aside class="side-panel">
+      <div class="eyebrow">NxT BYTE E-CELL</div>
+      <h3 style="font:700 27px 'Space Grotesk';margin-top:8px">Your next idea could be the one.</h3>
+      <ul>
+        <li><span class="check">✓</span><span>Interactive entrepreneurship workshop</span></li>
+        <li><span class="check">✓</span><span>Business model and finance fundamentals</span></li>
+        <li><span class="check">✓</span><span>Student-focused learning experience</span></li>
+        <li><span class="check">✓</span><span>Registration confirmation after payment</span></li>
+      </ul>
+    </aside>
+
+    <div class="form-panel">
+      <div class="stepbar">
+        <span class="step-dot active" id="dot1">1</span><span class="step-line"></span>
+        <span class="step-dot" id="dot2">2</span><span class="step-line"></span>
+        <span class="step-dot" id="dot3">✓</span>
+      </div>
+
+      <div class="step active" id="step1">
+        <h3 style="font:700 25px 'Space Grotesk';margin-bottom:5px">Participant details</h3>
+        <p style="color:#8f96a7;font-size:13px;margin-bottom:22px">Use an email address you can access after registration.</p>
+        <form id="regForm">
+          <div class="form-grid">
+            <div class="field"><label>Full name *</label><input id="name" required placeholder="Your full name"><div class="error" id="nameErr"></div></div>
+            <div class="field"><label>Email *</label><input id="email" type="email" required placeholder="you@example.com"><div class="error" id="emailErr"></div></div>
+            <div class="field"><label>Phone number *</label><input id="phone" required inputmode="tel" placeholder="+91 98765 43210"><div class="error" id="phoneErr"></div></div>
+            <div class="field"><label>College / Organization *</label><input id="college" required placeholder="College name"><div class="error" id="collegeErr"></div></div>
+            <div class="field"><label>Department</label><input id="department" placeholder="AI & DS / CSE / MBA..."></div>
+            <div class="field"><label>Year *</label><select id="year" required><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Postgraduate</option><option>Other</option></select></div>
+          </div>
+          <div class="terms"><input id="terms" type="checkbox"><span>I confirm that the information provided is accurate and I agree to the event registration terms.</span></div>
+          <div class="error" id="termsErr"></div>
+          <div class="form-actions"><button class="primary" type="submit">Continue to Payment →</button></div>
+        </form>
+      </div>
+
+      <div class="step" id="step2">
+        <h3 style="font:700 25px 'Space Grotesk'">Payment</h3>
+        <p style="color:#8f96a7;font-size:13px">This prototype simulates the payment stage. Connect a real gateway before accepting live payments.</p>
+        <div class="order">
+          <div class="order-row"><span>Illuminate Workshop — Entry</span><strong>₹199</strong></div>
+          <div class="order-row"><span>Platform fee</span><strong>₹0</strong></div>
+          <div class="order-row total"><span>Total payable</span><strong>₹199</strong></div>
+        </div>
+        <div style="font-size:13px;color:#cbd0db;font-weight:700">Choose payment method</div>
+        <div class="pay-options">
+          <button class="pay-option selected" data-method="UPI">UPI</button>
+          <button class="pay-option" data-method="Card">Card</button>
+          <button class="pay-option" data-method="Net Banking">Net Banking</button>
+        </div>
+        <div id="paymentMessage" style="color:#8f96a7;font-size:12px;margin-bottom:20px">Demo mode: clicking Pay ₹199 will create a simulated successful transaction.</div>
+        <div class="actions" style="justify-content:space-between">
+          <button class="secondary" id="backBtn">← Back</button>
+          <button class="primary" id="payBtn">Pay ₹199</button>
+        </div>
+      </div>
+
+      <div class="step" id="step3">
+        <div class="success">
+          <div class="success-icon">✓</div>
+          <div class="eyebrow">Registration confirmed</div>
+          <h3 style="font:700 32px 'Space Grotesk';margin-top:7px">You’re on the list.</h3>
+          <p style="color:#a7adbd;margin-top:8px">Your Illuminate Workshop registration has been created successfully.</p>
+          <div class="ticket">
+            <div class="ticket-row"><span>Registration ID</span><strong class="ticket-id" id="regId">NXT-ILL-000000</strong></div>
+            <div class="ticket-row"><span>Participant</span><strong id="outName">—</strong></div>
+            <div class="ticket-row"><span>Email</span><strong id="outEmail">—</strong></div>
+            <div class="ticket-row"><span>Payment</span><strong style="color:var(--success)">Successful</strong></div>
+          </div>
+          <button class="secondary" style="margin-top:20px" onclick="window.print()">Print / Save Ticket</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container footer-inner">
+  <span>© 2026 NxT BYTE E-Cell Kasargod</span>
+  <span>In association with Illuminate — E-Cell IIT Bombay</span>
+</div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const steps = [$("step1"), $("step2"), $("step3")];
+const dots = [$("dot1"), $("dot2"), $("dot3")];
+let participant = {};
+let paymentMethod = "UPI";
+
+function showStep(n){
+  steps.forEach((s,i)=>s.classList.toggle("active",i===n-1));
+  dots.forEach((d,i)=>d.classList.toggle("active",i<=n-1));
+  if(n===2) window.scrollTo({top:$("register").offsetTop-30,behavior:"smooth"});
+}
+
+function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
+function validPhone(v){return /^[0-9+\-\s()]{8,18}$/.test(v)}
+
+$("regForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  document.querySelectorAll(".error").forEach(x=>x.textContent="");
+  let ok=true;
+  const fields=[
+    ["name","nameErr","Please enter your full name."],
+    ["email","emailErr","Please enter a valid email."],
+    ["phone","phoneErr","Please enter a valid phone number."],
+    ["college","collegeErr","Please enter your college/organization."]
+  ];
+  fields.forEach(([id,err,msg])=>{
+    const el=$(id);
+    if(!el.value.trim() || (id==="email"&&!validEmail(el.value)) || (id==="phone"&&!validPhone(el.value))){
+      $(err).textContent=msg; ok=false;
+    }
+  });
+  if(!$("year").value){ok=false; toast("Please select your year.");}
+  if(!$("terms").checked){$("termsErr").textContent="Please accept the registration terms.";ok=false}
+  if(!ok)return;
+  participant={
+    name:$("name").value.trim(),email:$("email").value.trim(),
+    phone:$("phone").value.trim(),college:$("college").value.trim(),
+    department:$("department").value.trim(),year:$("year").value
+  };
+  showStep(2);
+});
+
+document.querySelectorAll(".pay-option").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".pay-option").forEach(b=>b.classList.remove("selected"));
+    btn.classList.add("selected");
+    paymentMethod=btn.dataset.method;
+    $("paymentMessage").textContent=`Demo mode: ${paymentMethod} selected. Connect your payment gateway for live transactions.`;
+  });
+});
+
+$("backBtn").addEventListener("click",()=>showStep(1));
+
+$("payBtn").addEventListener("click",()=>{
+  const btn=$("payBtn");
+  btn.disabled=true;
+  btn.textContent="Processing…";
+  setTimeout(()=>{
+    const id="NXT-ILL-"+Math.floor(100000+Math.random()*900000);
+    $("regId").textContent=id;
+    $("outName").textContent=participant.name;
+    $("outEmail").textContent=participant.email;
+    btn.disabled=false;
+    btn.textContent="Pay ₹199";
+    showStep(3);
+    toast("Registration successful!");
+  },1000);
+});
+
+function toast(message){
+  const t=$("toast"); t.textContent=message; t.style.display="block";
+  setTimeout(()=>t.style.display="none",2800);
+}
+</script>
+</body>
+</html>
